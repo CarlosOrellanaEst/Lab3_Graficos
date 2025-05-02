@@ -1761,6 +1761,11 @@
       "name": "EnemySpawnTimer",
       "type": "string",
       "value": "EnemySpawnTimer"
+    },
+    {
+      "name": "NumberOfEnemies",
+      "type": "number",
+      "value": 0
     }
   ],
   "layouts": [
@@ -1784,7 +1789,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.6040838749988933,
+        "zoomFactor": 0.5843784410740992,
         "windowMask": false
       },
       "objectsGroups": [],
@@ -1986,8 +1991,8 @@
           "name": "Personaje",
           "persistentUuid": "6fce3b1f-37b9-4c75-b961-f01e737708e1",
           "width": 61,
-          "x": -1,
-          "y": 551,
+          "x": 64,
+          "y": 436,
           "zOrder": 13,
           "numberProperties": [],
           "stringProperties": [],
@@ -3245,21 +3250,21 @@
           "behaviors": [
             {
               "acceleration": 1500,
+              "isFolded": true,
+              "maxSpeed": 150,
+              "name": "PlatformerObject",
+              "type": "PlatformBehavior::PlatformerObjectBehavior",
               "canGoDownFromJumpthru": true,
               "canGrabPlatforms": false,
               "canGrabWithoutMoving": false,
               "deceleration": 1500,
               "gravity": 1000,
               "ignoreDefaultControls": true,
-              "isFolded": true,
               "jumpSpeed": 600,
               "jumpSustainTime": 0.2,
               "ladderClimbingSpeed": 150,
               "maxFallingSpeed": 700,
-              "maxSpeed": 250,
-              "name": "PlatformerObject",
               "slopeMaxAngle": 60,
-              "type": "PlatformBehavior::PlatformerObjectBehavior",
               "useLegacyTrajectory": false,
               "xGrabTolerance": 10,
               "yGrabOffset": 0
@@ -3689,6 +3694,33 @@
               "parameters": [
                 "Enemigo",
                 "EnemySpawnTimer"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "NumberOfEnemies",
+                "<",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "NumberOfEnemies",
+                "=",
+                "0"
               ]
             }
           ]
@@ -4270,11 +4302,10 @@
                 },
                 {
                   "type": {
-                    "value": "SceneInstancesCount"
+                    "value": "NumberVariable"
                   },
                   "parameters": [
-                    "Enemigo",
-                    "Enemigo",
+                    "NumberOfEnemies",
                     "<",
                     "3"
                   ]
@@ -4288,19 +4319,18 @@
                   "parameters": [
                     "",
                     "Enemigo",
-                    "RandomInRange(384, 1152)",
+                    "RandomInRange(680, 1020)",
                     "0",
                     "\"Personajes\""
                   ]
                 },
                 {
                   "type": {
-                    "value": "AddForceVers"
+                    "value": "SetNumberVariable"
                   },
                   "parameters": [
-                    "Enemigo",
-                    "Personaje",
-                    "150",
+                    "NumberOfEnemies",
+                    "+",
                     "1"
                   ]
                 },
@@ -4311,6 +4341,136 @@
                   "parameters": [
                     "",
                     "EnemySpawnTimer"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PosX"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "<",
+                    "-20"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "="
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "NumberOfEnemies",
+                    "-",
+                    "1"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PosX"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    ">",
+                    "Personaje.X()"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PlatformBehavior::IsObjectOnGivenFloor"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "PlatformerObject",
+                    "TileObject",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "FlippableCapability::FlippableBehavior::FlipX"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "Flippable",
+                    "yes"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PlatformBehavior::SimulateLeftKey"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "PlatformerObject"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PosX"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "<",
+                    "Personaje.X()"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PlatformBehavior::IsObjectOnGivenFloor"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "PlatformerObject",
+                    "TileObject",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "FlippableCapability::FlippableBehavior::FlipX"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "Flippable",
+                    "no"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PlatformBehavior::SimulateRightKey"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "PlatformerObject"
                   ]
                 }
               ]
