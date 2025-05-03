@@ -4031,7 +4031,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 1.5804687500000172,
+        "zoomFactor": 0.6040838749988943,
         "windowMask": false
       },
       "objectsGroups": [],
@@ -4446,7 +4446,7 @@
           "name": "Text_Monedas",
           "persistentUuid": "5bc76453-f012-422c-94d8-f0a15c449b6d",
           "width": 0,
-          "x": 507,
+          "x": 469.5,
           "y": 24,
           "zOrder": 16,
           "numberProperties": [],
@@ -6318,7 +6318,7 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "Coins: 0/10",
+          "string": "Monedas: 0/10",
           "font": "assets\\Minecraft.ttf",
           "textAlignment": "left",
           "characterSize": 50,
@@ -6341,7 +6341,7 @@
             "shadowOpacity": 127,
             "smoothed": true,
             "underlined": false,
-            "text": "Coins: 0/10",
+            "text": "Monedas: 0/10",
             "font": "assets\\Minecraft.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
@@ -6576,7 +6576,7 @@
                 "Text_Monedas",
                 "Text",
                 "=",
-                "\"Coins: \" + Coins + \"/\" + TotalCoins"
+                "\"Monedas: \" + Coins + \"/\" + TotalCoins"
               ]
             }
           ]
@@ -9121,7 +9121,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": true,
-        "zoomFactor": 0.546875,
+        "zoomFactor": 0.6455105703311477,
         "windowMask": false
       },
       "objectsGroups": [],
@@ -9187,9 +9187,25 @@
           "name": "Perdiste_",
           "persistentUuid": "2ee0dcc7-b723-471c-a471-19a73f47f44f",
           "width": 0,
-          "x": 482,
-          "y": 160,
+          "x": 371.5,
+          "y": 100,
           "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "Monedas_Recogidas",
+          "persistentUuid": "a582a5ed-86c3-4aaf-bb0e-235a818ede5b",
+          "width": 0,
+          "x": 460.5,
+          "y": 180,
+          "zOrder": 5,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -9445,7 +9461,7 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "Felicidades\nGanaste!",
+          "string": "Felicidades Ganaste!",
           "font": "assets\\Minecraft.ttf",
           "textAlignment": "center",
           "characterSize": 55,
@@ -9468,7 +9484,49 @@
             "shadowOpacity": 127,
             "smoothed": true,
             "underlined": false,
-            "text": "Felicidades\nGanaste!",
+            "text": "Felicidades Ganaste!",
+            "font": "assets\\Minecraft.ttf",
+            "textAlignment": "center",
+            "verticalTextAlignment": "top",
+            "characterSize": 55,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": true,
+          "italic": false,
+          "name": "Monedas_Recogidas",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Monedas: 0/10",
+          "font": "assets\\Minecraft.ttf",
+          "textAlignment": "center",
+          "characterSize": 55,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": true,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Monedas: 0/10",
             "font": "assets\\Minecraft.ttf",
             "textAlignment": "center",
             "verticalTextAlignment": "top",
@@ -9488,6 +9546,9 @@
           },
           {
             "objectName": "Perdiste_"
+          },
+          {
+            "objectName": "Monedas_Recogidas"
           },
           {
             "objectName": "PurpleButtonWithShadow"
@@ -9591,6 +9652,28 @@
               ]
             }
           ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+              },
+              "parameters": [
+                "Monedas_Recogidas",
+                "Text",
+                "=",
+                "\"Monedas: \" + Coins + \"/\" + TotalCoins"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": []
         }
       ],
       "layers": [
