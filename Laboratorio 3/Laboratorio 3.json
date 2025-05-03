@@ -3983,6 +3983,11 @@
           "name": "Puntos3",
           "type": "number",
           "value": 0
+        },
+        {
+          "name": "Direccion",
+          "type": "number",
+          "value": 1
         }
       ],
       "instances": [
@@ -4430,17 +4435,23 @@
                     {
                       "hasCustomCollisionMask": true,
                       "image": "assets\\Characters\\Diego_Running_1.png",
-                      "points": [],
+                      "points": [
+                        {
+                          "name": "arma",
+                          "x": 28.5,
+                          "y": 32
+                        }
+                      ],
                       "originPoint": {
                         "name": "origine",
                         "x": 0,
                         "y": 0
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
-                        "x": 0,
-                        "y": 0
+                        "x": 16,
+                        "y": 24
                       },
                       "customCollisionMask": [
                         [
@@ -4466,17 +4477,23 @@
                     {
                       "hasCustomCollisionMask": true,
                       "image": "assets\\Characters\\Diego_Running_2.png",
-                      "points": [],
+                      "points": [
+                        {
+                          "name": "arma",
+                          "x": 28.5,
+                          "y": 32
+                        }
+                      ],
                       "originPoint": {
                         "name": "origine",
                         "x": 0,
                         "y": 0
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
-                        "x": 0,
-                        "y": 0
+                        "x": 16,
+                        "y": 24
                       },
                       "customCollisionMask": [
                         [
@@ -4502,17 +4519,23 @@
                     {
                       "hasCustomCollisionMask": true,
                       "image": "assets\\Characters\\Diego_Running_3.png",
-                      "points": [],
+                      "points": [
+                        {
+                          "name": "arma",
+                          "x": 28.5,
+                          "y": 32
+                        }
+                      ],
                       "originPoint": {
                         "name": "origine",
                         "x": 0,
                         "y": 0
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
-                        "x": 0,
-                        "y": 0
+                        "x": 16,
+                        "y": 24
                       },
                       "customCollisionMask": [
                         [
@@ -4538,17 +4561,23 @@
                     {
                       "hasCustomCollisionMask": true,
                       "image": "assets\\Characters\\Diego_Running_4.png",
-                      "points": [],
+                      "points": [
+                        {
+                          "name": "arma",
+                          "x": 28.5,
+                          "y": 32
+                        }
+                      ],
                       "originPoint": {
                         "name": "origine",
                         "x": 0,
                         "y": 0
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
-                        "x": 0,
-                        "y": 0
+                        "x": 16,
+                        "y": 24
                       },
                       "customCollisionMask": [
                         [
@@ -4574,17 +4603,23 @@
                     {
                       "hasCustomCollisionMask": true,
                       "image": "assets\\Characters\\Diego_Running_5.png",
-                      "points": [],
+                      "points": [
+                        {
+                          "name": "arma",
+                          "x": 28.5,
+                          "y": 32
+                        }
+                      ],
                       "originPoint": {
                         "name": "origine",
                         "x": 0,
                         "y": 0
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
-                        "x": 0,
-                        "y": 0
+                        "x": 16,
+                        "y": 24
                       },
                       "customCollisionMask": [
                         [
@@ -4610,17 +4645,23 @@
                     {
                       "hasCustomCollisionMask": true,
                       "image": "assets\\Characters\\Diego_Running_6.png",
-                      "points": [],
+                      "points": [
+                        {
+                          "name": "arma",
+                          "x": 28.5,
+                          "y": 32
+                        }
+                      ],
                       "originPoint": {
                         "name": "origine",
                         "x": 0,
                         "y": 0
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
-                        "x": 0,
-                        "y": 0
+                        "x": 16,
+                        "y": 24
                       },
                       "customCollisionMask": [
                         [
@@ -5297,8 +5338,8 @@
                       "points": [
                         {
                           "name": "arma",
-                          "x": 30.5,
-                          "y": 22
+                          "x": 28.5,
+                          "y": 32
                         }
                       ],
                       "originPoint": {
@@ -5339,8 +5380,8 @@
                       "points": [
                         {
                           "name": "arma",
-                          "x": 30.5,
-                          "y": 22
+                          "x": 28.5,
+                          "y": 32
                         }
                       ],
                       "originPoint": {
@@ -5381,8 +5422,8 @@
                       "points": [
                         {
                           "name": "arma",
-                          "x": 30.5,
-                          "y": 22
+                          "x": 28.5,
+                          "y": 32
                         }
                       ],
                       "originPoint": {
@@ -5432,17 +5473,23 @@
                     {
                       "hasCustomCollisionMask": true,
                       "image": "assets\\Characters\\Diego_Hurt.png",
-                      "points": [],
+                      "points": [
+                        {
+                          "name": "arma",
+                          "x": 28.5,
+                          "y": 32
+                        }
+                      ],
                       "originPoint": {
                         "name": "origine",
                         "x": 0,
                         "y": 0
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
-                        "x": 0,
-                        "y": 0
+                        "x": 16,
+                        "y": 24
                       },
                       "customCollisionMask": []
                     }
@@ -6473,7 +6520,6 @@
                   ]
                 },
                 {
-                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -6502,7 +6548,18 @@
                           ]
                         }
                       ],
-                      "actions": [],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "Direccion",
+                            "=",
+                            "1"
+                          ]
+                        }
+                      ],
                       "events": [
                         {
                           "type": "BuiltinCommonInstructions::Standard",
@@ -6598,7 +6655,18 @@
                           ]
                         }
                       ],
-                      "actions": [],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "Direccion",
+                            "=",
+                            "-1"
+                          ]
+                        }
+                      ],
                       "events": [
                         {
                           "type": "BuiltinCommonInstructions::Standard",
@@ -6804,8 +6872,30 @@
                             "",
                             "bala",
                             "Personaje.PointX(\"arma\")",
-                            "Personaje.PointY(\"arma\")",
+                            "Personaje.PointY(\"arma\") -10",
                             "\"Balas\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Physics2::LinearVelocityX"
+                          },
+                          "parameters": [
+                            "bala",
+                            "Physics2",
+                            "=",
+                            "500*Direccion"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ResizableCapability::ResizableBehavior::SetSize"
+                          },
+                          "parameters": [
+                            "bala",
+                            "Resizable",
+                            "20",
+                            "20"
                           ]
                         }
                       ]
@@ -7045,8 +7135,109 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "CollisionNP"
+                  },
+                  "parameters": [
+                    "bala",
+                    "Enemigo",
+                    "",
+                    "",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "bala",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AnimatableCapability::AnimatableBehavior::SetName"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "Animation",
+                    "=",
+                    "\"Aplastado\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "PlatformerObject"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "AnimatableCapability::AnimatableBehavior::Name"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "Animation",
+                    "=",
+                    "\"Aplastado\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "CollisionNP"
+                  },
+                  "parameters": [
+                    "Personaje",
+                    "Enemigo",
+                    "",
+                    "",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "AnimatableCapability::AnimatableBehavior::SetName"
+                  },
+                  "parameters": [
+                    "Personaje",
+                    "Animation",
+                    "=",
+                    "\"herido\""
+                  ]
+                }
+              ]
             }
           ],
+          "parameters": []
+        },
+        {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "name": "Bala",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [],
           "parameters": []
         }
       ],
