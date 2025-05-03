@@ -3943,6 +3943,11 @@
       "value": "EnemySpawnTimer"
     },
     {
+      "name": "NumberOfEnemies",
+      "type": "number",
+      "value": 0
+    },
+    {
       "name": "Vidas",
       "type": "number",
       "value": 3
@@ -3951,6 +3956,16 @@
       "name": "Score",
       "type": "number",
       "value": 0
+    },
+    {
+      "name": "InitialPlayerPosX",
+      "type": "number",
+      "value": 64
+    },
+    {
+      "name": "InitialPlayerPosY",
+      "type": "number",
+      "value": 436
     }
   ],
   "layouts": [
@@ -4171,7 +4186,7 @@
           "persistentUuid": "6cf54db0-fa12-47e1-9119-60487fe65247",
           "width": 244,
           "x": 24,
-          "y": 30,
+          "y": 24,
           "zOrder": 12,
           "numberProperties": [],
           "stringProperties": [],
@@ -4187,8 +4202,8 @@
           "name": "Personaje",
           "persistentUuid": "6fce3b1f-37b9-4c75-b961-f01e737708e1",
           "width": 61,
-          "x": -1,
-          "y": 551,
+          "x": 64,
+          "y": 436,
           "zOrder": 13,
           "numberProperties": [],
           "stringProperties": [],
@@ -4196,16 +4211,16 @@
         },
         {
           "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "keepRatio": true,
+          "customSize": true,
+          "depth": 0,
+          "height": 60,
           "layer": "",
           "name": "Text_Puntos",
           "persistentUuid": "d9b0b3d3-c566-4c8d-945d-f1e85622f0cf",
-          "width": 0,
-          "x": 292,
-          "y": 21,
-          "zOrder": 14,
+          "width": 230,
+          "x": 1026,
+          "y": 24,
+          "zOrder": 12,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -4238,7 +4253,7 @@
           "persistentUuid": "3bdd201a-ef1d-4c4d-9cef-ec9815e8c9e9",
           "width": 29,
           "x": 929,
-          "y": 478,
+          "y": 482,
           "zOrder": 15,
           "numberProperties": [],
           "stringProperties": [],
@@ -4254,7 +4269,7 @@
           "name": "Interfaz_Score",
           "persistentUuid": "59418a56-b02a-4ce0-8cd3-f046027447e4",
           "width": 29,
-          "x": 1213,
+          "x": 1200,
           "y": 226,
           "zOrder": 15,
           "numberProperties": [],
@@ -4271,8 +4286,8 @@
           "name": "Interfaz_Score",
           "persistentUuid": "4acfbdc3-4973-4a45-8ba8-45ae50623bd9",
           "width": 29,
-          "x": 970,
-          "y": 168,
+          "x": 934,
+          "y": 166,
           "zOrder": 15,
           "numberProperties": [],
           "stringProperties": [],
@@ -4288,7 +4303,7 @@
           "name": "Interfaz_Score",
           "persistentUuid": "e0c167bc-74db-4f69-a975-855d530d8cb2",
           "width": 29,
-          "x": 849,
+          "x": 822,
           "y": 166,
           "zOrder": 15,
           "numberProperties": [],
@@ -4323,7 +4338,7 @@
           "persistentUuid": "a7770913-bf33-4b6e-897c-f679a8bb38f2",
           "width": 29,
           "x": 502,
-          "y": 297,
+          "y": 291,
           "zOrder": 15,
           "numberProperties": [],
           "stringProperties": [],
@@ -4339,8 +4354,8 @@
           "name": "Interfaz_Score",
           "persistentUuid": "67bfe975-aa5b-498e-a1eb-d726e73a64a9",
           "width": 29,
-          "x": 348,
-          "y": 358,
+          "x": 340,
+          "y": 357,
           "zOrder": 15,
           "numberProperties": [],
           "stringProperties": [],
@@ -4356,8 +4371,8 @@
           "name": "Interfaz_Score",
           "persistentUuid": "6b011cca-d75f-4dab-ad53-7d0d9bede0b2",
           "width": 29,
-          "x": 333,
-          "y": 460,
+          "x": 173,
+          "y": 482,
           "zOrder": 15,
           "numberProperties": [],
           "stringProperties": [],
@@ -4373,8 +4388,8 @@
           "name": "Interfaz_Score",
           "persistentUuid": "ea853619-d9a2-4fb6-83a6-b036e28b01c3",
           "width": 29,
-          "x": 612,
-          "y": 485,
+          "x": 550,
+          "y": 482,
           "zOrder": 15,
           "numberProperties": [],
           "stringProperties": [],
@@ -5673,9 +5688,9 @@
           "effects": [],
           "behaviors": [
             {
-              "isFolded": true,
               "name": "PlatformerObject",
               "type": "PlatformBehavior::PlatformerObjectBehavior",
+              "maxSpeed": 150,
               "acceleration": 1500,
               "canGoDownFromJumpthru": true,
               "canGrabPlatforms": false,
@@ -5687,7 +5702,6 @@
               "jumpSustainTime": 0.2,
               "ladderClimbingSpeed": 150,
               "maxFallingSpeed": 700,
-              "maxSpeed": 250,
               "slopeMaxAngle": 60,
               "useLegacyTrajectory": false,
               "xGrabTolerance": 10,
@@ -6305,6 +6319,121 @@
           ]
         },
         {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "NumberOfEnemies",
+                "<",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "NumberOfEnemies",
+                "=",
+                "0"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Vidas",
+                "<",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "Vidas",
+                "=",
+                "0"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Score",
+                "<",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "Score",
+                "=",
+                "0"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+              },
+              "parameters": [
+                "Text_Marcador",
+                "Text",
+                "=",
+                "\"Vidas: \"+ Vidas"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+              },
+              "parameters": [
+                "Text_Puntos",
+                "Text",
+                "=",
+                "\"Score: \" + Score"
+              ]
+            }
+          ]
+        },
+        {
           "colorB": 5,
           "colorG": 117,
           "colorR": 65,
@@ -6335,6 +6464,17 @@
                         "",
                         "",
                         ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "AnimatableCapability::AnimatableBehavior::Name"
+                      },
+                      "parameters": [
+                        "Enemigo",
+                        "Animation",
+                        "!=",
+                        "\"Aplastado\""
                       ]
                     }
                   ],
@@ -6417,40 +6557,6 @@
                 },
                 {
                   "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "TextContainerCapability::TextContainerBehavior::SetValue"
-                      },
-                      "parameters": [
-                        "Text_Puntos",
-                        "Text",
-                        "=",
-                        "\"Score: \"+Score"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "TextContainerCapability::TextContainerBehavior::SetValue"
-                      },
-                      "parameters": [
-                        "Text_Marcador",
-                        "Text",
-                        "=",
-                        "\"Vidas: \"+Vidas"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
                       "type": {
@@ -6469,7 +6575,37 @@
                         "value": "Wait"
                       },
                       "parameters": [
-                        "0.5"
+                        "0.01"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "NumberOfEnemies",
+                        "=",
+                        "0"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "Vidas",
+                        "=",
+                        "0"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "Score",
+                        "=",
+                        "0"
                       ]
                     },
                     {
@@ -6505,6 +6641,36 @@
                       },
                       "parameters": [
                         "0.5"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "NumberOfEnemies",
+                        "=",
+                        "0"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "Vidas",
+                        "=",
+                        "0"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "Score",
+                        "=",
+                        "0"
                       ]
                     },
                     {
@@ -6827,6 +6993,7 @@
                   ]
                 },
                 {
+                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -6903,7 +7070,6 @@
                   ]
                 },
                 {
-                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -7040,7 +7206,7 @@
                       "parameters": [
                         "Personaje",
                         "=",
-                        "-45"
+                        "InitialPlayerPosX"
                       ]
                     },
                     {
@@ -7050,15 +7216,86 @@
                       "parameters": [
                         "Personaje",
                         "=",
-                        "500"
+                        "InitialPlayerPosY"
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "AnimatableCapability::AnimatableBehavior::Name"
+                          },
+                          "parameters": [
+                            "Personaje",
+                            "Animation",
+                            "=",
+                            "\"herido\""
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "Wait"
+                          },
+                          "parameters": [
+                            "0.05"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "AnimatableCapability::AnimatableBehavior::SetName"
+                          },
+                          "parameters": [
+                            "Personaje",
+                            "Animation",
+                            "=",
+                            "\"Quieto\""
+                          ]
+                        }
                       ]
                     }
                   ]
                 },
                 {
                   "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [],
-                  "actions": []
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "PosX"
+                      },
+                      "parameters": [
+                        "Personaje",
+                        "<",
+                        "-64"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "MettreX"
+                      },
+                      "parameters": [
+                        "Personaje",
+                        "=",
+                        "InitialPlayerPosX"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "MettreY"
+                      },
+                      "parameters": [
+                        "Personaje",
+                        "=",
+                        "InitialPlayerPosY"
+                      ]
+                    }
+                  ]
                 }
               ],
               "parameters": []
@@ -7091,11 +7328,10 @@
                 },
                 {
                   "type": {
-                    "value": "SceneInstancesCount"
+                    "value": "NumberVariable"
                   },
                   "parameters": [
-                    "Enemigo",
-                    "Enemigo",
+                    "NumberOfEnemies",
                     "<",
                     "3"
                   ]
@@ -7116,12 +7352,11 @@
                 },
                 {
                   "type": {
-                    "value": "AddForceVers"
+                    "value": "SetNumberVariable"
                   },
                   "parameters": [
-                    "Enemigo",
-                    "Personaje",
-                    "150",
+                    "NumberOfEnemies",
+                    "+",
                     "1"
                   ]
                 },
@@ -7141,14 +7376,12 @@
               "conditions": [
                 {
                   "type": {
-                    "value": "CollisionNP"
+                    "value": "PosX"
                   },
                   "parameters": [
-                    "bala",
                     "Enemigo",
-                    "",
-                    "",
-                    ""
+                    "<",
+                    "-20"
                   ]
                 }
               ],
@@ -7158,24 +7391,61 @@
                     "value": "Delete"
                   },
                   "parameters": [
-                    "bala",
+                    "Enemigo",
                     ""
                   ]
                 },
                 {
                   "type": {
-                    "value": "AnimatableCapability::AnimatableBehavior::SetName"
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "NumberOfEnemies",
+                    "-",
+                    "1"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PosX"
                   },
                   "parameters": [
                     "Enemigo",
-                    "Animation",
-                    "=",
-                    "\"Aplastado\""
+                    ">",
+                    "Personaje.X()"
                   ]
                 },
                 {
                   "type": {
-                    "value": "Delete"
+                    "value": "PlatformBehavior::IsObjectOnGivenFloor"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "PlatformerObject",
+                    "TileObject",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "FlippableCapability::FlippableBehavior::FlipX"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "Flippable",
+                    "yes"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PlatformBehavior::SimulateLeftKey"
                   },
                   "parameters": [
                     "Enemigo",
@@ -7189,13 +7459,59 @@
               "conditions": [
                 {
                   "type": {
-                    "inverted": true,
+                    "value": "PosX"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "<",
+                    "Personaje.X()"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PlatformBehavior::IsObjectOnGivenFloor"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "PlatformerObject",
+                    "TileObject",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "FlippableCapability::FlippableBehavior::FlipX"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "Flippable",
+                    "no"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PlatformBehavior::SimulateRightKey"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "PlatformerObject"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
                     "value": "AnimatableCapability::AnimatableBehavior::Name"
                   },
                   "parameters": [
                     "Enemigo",
                     "Animation",
-                    "=",
+                    "!=",
                     "\"Aplastado\""
                   ]
                 },
@@ -7204,8 +7520,8 @@
                     "value": "CollisionNP"
                   },
                   "parameters": [
-                    "Personaje",
                     "Enemigo",
+                    "Personaje",
                     "",
                     "",
                     ""
@@ -7237,7 +7553,103 @@
           "name": "Bala",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
-          "events": [],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "CollisionNP"
+                  },
+                  "parameters": [
+                    "bala",
+                    "Enemigo",
+                    "",
+                    "",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "bala",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AnimatableCapability::AnimatableBehavior::SetName"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "Animation",
+                    "=",
+                    "\"Aplastado\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Wait"
+                  },
+                  "parameters": [
+                    "0.2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ActivateBehavior"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "PlatformerObject",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Wait"
+                  },
+                  "parameters": [
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "PlatformerObject"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "NumberOfEnemies",
+                    "-",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AnimatableCapability::AnimatableBehavior::SetName"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "Animation",
+                    "=",
+                    "\"Quieto\""
+                  ]
+                }
+              ]
+            }
+          ],
           "parameters": []
         }
       ],
