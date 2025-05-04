@@ -4031,7 +4031,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.6040838749988943,
+        "zoomFactor": 0.5468750000000071,
         "windowMask": false
       },
       "objectsGroups": [],
@@ -4051,13 +4051,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "depth": 1.001564945226917,
-          "height": 720.1251956181534,
+          "depth": 1,
+          "height": 720,
           "keepRatio": true,
           "layer": "",
           "name": "Fondo",
           "persistentUuid": "e188bc80-4253-4d2f-9f80-6ddc33ab10d0",
-          "width": 1280,
+          "width": 1331,
           "x": 0,
           "y": 0,
           "zOrder": 1,
@@ -4068,13 +4068,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "depth": 0.909090909090909,
-          "height": 58.18181818181817,
+          "depth": 1,
+          "height": 58,
           "keepRatio": true,
           "layer": "Fondo",
           "name": "TileObject",
           "persistentUuid": "a94dfbf5-bb6d-4388-ab2e-026520612ea1",
-          "width": 1280,
+          "width": 1331,
           "x": 0,
           "y": 660,
           "zOrder": 2,
@@ -4085,13 +4085,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "depth": 0.909090909090909,
-          "height": 58.18181818181817,
+          "depth": 1,
+          "height": 58,
           "keepRatio": true,
           "layer": "Fondo",
           "name": "TileObject2",
           "persistentUuid": "1a6a9323-9dc9-40e1-a22b-a54157737e7f",
-          "width": 1280,
+          "width": 1333,
           "x": 0,
           "y": 720,
           "zOrder": 3,
@@ -6785,16 +6785,6 @@
                     },
                     {
                       "type": {
-                        "value": "SetNumberVariable"
-                      },
-                      "parameters": [
-                        "Coins",
-                        "=",
-                        "0"
-                      ]
-                    },
-                    {
-                      "type": {
                         "value": "Scene"
                       },
                       "parameters": [
@@ -8992,6 +8982,16 @@
                 "=",
                 "0"
               ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "Coins",
+                "=",
+                "0"
+              ]
             }
           ]
         },
@@ -9671,6 +9671,16 @@
                 "",
                 "\"EscenaCombate\"",
                 ""
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "Coins",
+                "=",
+                "0"
               ]
             }
           ]
