@@ -6699,15 +6699,6 @@
                   "actions": [
                     {
                       "type": {
-                        "value": "Delete"
-                      },
-                      "parameters": [
-                        "Interfaz_Score",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
                         "value": "PlaySound"
                       },
                       "parameters": [
@@ -6726,6 +6717,15 @@
                         "Coins",
                         "+",
                         "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Delete"
+                      },
+                      "parameters": [
+                        "Interfaz_Score",
+                        ""
                       ]
                     }
                   ]
@@ -6779,6 +6779,16 @@
                       },
                       "parameters": [
                         "Score",
+                        "=",
+                        "0"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "Coins",
                         "=",
                         "0"
                       ]
@@ -7742,6 +7752,18 @@
                     "",
                     "",
                     ""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "AnimatableCapability::AnimatableBehavior::Name"
+                  },
+                  "parameters": [
+                    "Enemigo",
+                    "Animation",
+                    "=",
+                    "\"Aplastado\""
                   ]
                 }
               ],
